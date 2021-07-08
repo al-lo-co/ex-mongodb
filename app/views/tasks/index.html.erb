@@ -1,0 +1,22 @@
+<div>
+  <h1>Lista de tareas</h1>
+  <p> A continuacion veras toda la lista de tareas creadas y podras crear una nueva tarea, editarla o eliminarla si eres el creador de la misma </p>
+  <div>
+    <table>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <div>
+            <span> Tarea #<%= link_to task.id, task %> <%= task.name %> </span>
+            <span> <%= task.description %> </span>
+            <span> <%= task.category.name %> </span>
+            <span> <%= task.owner.email %> creado el <%= task.created_at.to_formatted_s(:long) %> / Vence <%= task.due_date %> </span>
+          </div>
+          <div>
+            <span> <%= link_to "Editar", edit_task_path(task)%> </span>
+            <span> <%= link_to "Eliminar", task, method: :delete, data: { confirm: "r u sure?"} %> </span>
+          </div>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

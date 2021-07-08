@@ -1,0 +1,22 @@
+<div>
+  <div>
+    <p><%= @task.name %></p>
+    <p><%= @task.description %></p>
+    <p><%= @task.due_date %></p>
+    <p><%= @task.category.name %></p>
+    <p><%= @task.owner.email %></p>
+  </div>
+  <div>
+    <% @task.notes.each do |note|%>
+      <p><%= note.body %></p>
+    <% end %>
+  </div>
+  <div>
+    <%= form_for Note.new, url: task_notes_path(task_id: @task.id) do |f|%>
+      <p> 
+        <%= f.text_field :body, placeholder: "Agregar nota" %>
+      </p>
+        <%= f.submit 'Enviar' %>
+    <% end %>
+  </div>
+</div>
