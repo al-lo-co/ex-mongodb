@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
   
     def index
-      @tasks = Task.all
+      @tasks = (current_user.owned_tasks + current_user.tasks).uniq
     end
   
     def show
@@ -10,7 +10,6 @@ class TasksController < ApplicationController
     end
 
     def new
-      @categories = Category.all
       @task = Task.new
     end
 
@@ -18,15 +17,16 @@ class TasksController < ApplicationController
       @task = Task.new(task_params)
       @task.owner = current_user
       @task.save
+      redirect_to tasks_path
     end
   
     def update
-      @task = Task.find(task_params)
-      @task.update_params(task_params)
+      @task = Task.find(params[:id])
+      @task.update(task_params)
+      redirect_to tasks_path
     end
   
     def edit
-      @categories = Category.all
       @task = Task.find(params[:id])
     end
   

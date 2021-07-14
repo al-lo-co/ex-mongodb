@@ -1,0 +1,13 @@
+<div class="participating-users">
+  <%= f.fields_for :participating_users, Participant.new do | p | %>
+    <div>
+      <%= p.label :user_id, 'Usuario' %>
+      <%= p.collection_select :user_id, User.all - [current_user], :id, :email %>
+    </div>
+
+    <div>
+      <%= p.label :role, 'Rol' %>
+      <%= p.select :role, Participant.roles %>
+    </div>
+  <% end %>
+</div>

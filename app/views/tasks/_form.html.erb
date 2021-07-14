@@ -18,8 +18,11 @@
     <div>
       <%= f.label :category_id %>
       <%#= f.number_field :category_id %>
-      <%= f.select :category_id, @categories.inject({}){|item1, item2| item1[item2[:name]] = item2[:id]; item1 } %>
+      <%#= f.select :category_id, @categories.inject({}){|item1, item2| item1[item2[:name]] = item2[:id]; item1 } %>
+      <%= f.collection_select :category_id, Category.all, :id, :name %>
     </div>
+
+    <%= render 'participating_users_fields', f: f %>
 
     <div>
       <%= f.submit %>
