@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
   
     def index
-      @tasks = Task.all
+      @tasks = Task.joins(:participants).where('owner_id = ? OR participants.user_id = ?', current_user.id, current_user.id).group(:id)
     end
   
     def show

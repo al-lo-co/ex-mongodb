@@ -16,4 +16,8 @@ class Task < ApplicationRecord
     errors.add :due_date, "fecha invalida"
   end
 
+  def create_code
+    self.code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandowm.hex(8)}"
+  end
+
 end
