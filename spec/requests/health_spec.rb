@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+=begin
 RSpec.describe "Health endpoint", type: :request do
   describe "get 200" do
     before {get '/health'}
@@ -15,3 +16,4 @@ RSpec.describe "Health endpoint", type: :request do
     end
   end
 end
+=end

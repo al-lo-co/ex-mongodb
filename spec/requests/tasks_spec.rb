@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+=begin
 RSpec.describe "Tasks endpoint", type: :request do
   describe "get 200" do
 
@@ -21,3 +22,4 @@ RSpec.describe "Tasks endpoint", type: :request do
     end
   end
 end
+=end
