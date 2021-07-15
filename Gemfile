@@ -57,6 +57,7 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'database_cleaner', '~> 1.7'
   gem 'capybara'
+  gem 'mongoid-rspec'
 end
 
 group :development do

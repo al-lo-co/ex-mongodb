@@ -10,6 +10,7 @@ require 'rspec/rails'
 require 'factory_bot_rails'
 require 'database_cleaner'
 require 'capybara/rails'
+require 'mongoid-rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 Shoulda::Matchers.configure do |config|
@@ -72,6 +73,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers
   config.include Devise::Test::ControllerHelpers, type: 'controller'
+  config.include Mongoid::Matchers, type: :model
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

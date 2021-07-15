@@ -7,4 +7,5 @@ class Category
 
   has_many :tasks
   validates :name, :description, presence: true
+  validates_uniqueness_of :name
 end

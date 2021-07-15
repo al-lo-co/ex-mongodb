@@ -1,6 +1,7 @@
 class Task 
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Attributes::Dynamic
 
   field :name, type: String
   field :description, type: String
@@ -15,9 +16,12 @@ class Task
   has_many :notes
 
   validates :name, :due_date, :description, presence: true
+  validates_uniqueness_of :name
   validate :due_date_validity
 
   accepts_nested_attributes_for :participating_users, allow_destroy: true
+
+  before_create :create_code
 
   def participants
     participating_users.includes(:user).map(&:user)
@@ -30,7 +34,7 @@ class Task
   end
 
   def create_code
-    self.code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandowm.hex(8)}"
+    self.code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandom.hex(8)}"
   end
 
 end
