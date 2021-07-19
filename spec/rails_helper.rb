@@ -64,16 +64,24 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.after(:each, type: :system) do
+    driven_by(:rack_test)
+  end
+
+  config.after(:each, type: :system, js: true) do
+    driven_by(:selenium_chrome_headless)
+  end
+
   config.around(:each) do |example|
     DatabaseCleaner.cleaning do
       example.run
     end
   end
-
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :system
   config.include Mongoid::Matchers, type: :model
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

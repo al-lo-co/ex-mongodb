@@ -17,8 +17,9 @@ class TasksController < ApplicationController
       @task = Task.new(task_params)
       @task.owner = current_user
       @task.save
+      flash[:success] = "Object successfully created"
       redirect_to @task
-    end
+    end    
   
     def update
       @task = Task.find(params[:id])

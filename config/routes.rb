@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :tasks do
     resources :notes, only: [:create], controller: 'notes'
   end
-  root to: 'categories#index'
+  root to: 'tasks#index'
 end
