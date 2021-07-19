@@ -17,13 +17,13 @@ class TasksController < ApplicationController
       @task = Task.new(task_params)
       @task.owner = current_user
       @task.save
-      redirect_to tasks_path
+      redirect_to @task
     end
   
     def update
       @task = Task.find(params[:id])
       @task.update(task_params)
-      redirect_to tasks_path
+      redirect_to @task
     end
   
     def edit

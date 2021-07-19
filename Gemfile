@@ -58,6 +58,7 @@ group :test do
   gem 'database_cleaner', '~> 1.7'
   gem 'capybara'
   gem 'mongoid-rspec'
+  gem 'rails-controller-testing'
 end
 
 group :development do
