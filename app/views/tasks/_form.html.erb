@@ -22,18 +22,23 @@
       <%= f.collection_select :category_id, Category.all, :id, :name %>
     </div>
 
-    <div class="participating-users">
+    <div id="participating-users">
       <%= f.fields_for :participating_users, Participant.new do | p | %>
-        <%= render 'participating_user_fields', f: p, class: 'participants' %>
+        <%= render 'participating_user_fields', f: p %>
       <% end %>
-    </div>
-    <div>
+
       <%= link_to_add_association 'Agregar participante', f, :participating_users %>
     </div>
 
+
+    
     <div>
       <%= f.submit %>
     </div>
 
   <% end %>
 </div>
+
+<script>
+  PLATZI.tasks.form.setup();
+</script>

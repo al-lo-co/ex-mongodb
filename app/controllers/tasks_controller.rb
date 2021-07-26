@@ -18,8 +18,9 @@ class TasksController < ApplicationController
       @task.owner = current_user
       @task.save
       flash[:success] = "Object successfully created"
-      format.html{ redirect_to @task, notice: 'Task was successfully created.'}
-      format.json{ render :show, status: :created, location: @task }
+      #format.html { redirect_to @task, notice: 'Task was successfully created.'}
+      #format.json { render :show, status: :created, location: @task }
+      redirect_to @task
     end    
   
     def update

@@ -1,10 +1,17 @@
-<div>
-  <%= f.label :user_id, 'Usuario' %>
-  <%= f.collection_select :user_id, User.all - [current_user], :id, :email, {include_blank: true} ,{class:"selectize"} %>
-</div>
+<div class="nested-fields">
+  <div>
+    <%= f.label :user_id, 'Usuario' %>
+    <%= f.collection_select :user_id, User.all - [current_user], :id, :email, {include_blank: true} ,{class:"selectize"} %>
+  </div>
 
-<div>
-  <%= f.label :role, 'Rol' %>
-  <%#= p.select :role, Participant.roles,{include_blank: true}, {class: "selectize"}%>
-  <%= f.select :role, Participant.roles %>
+  <div>
+    <%= f.label :role, 'Rol' %>
+    <%#= p.select :role, Participant.roles,{include_blank: true}, {class: "selectize"}%>
+    <%= f.select :role, Participant.roles, {include_blank: true} ,{class:"selectize"} %>
+  </div>
+
+  
+  <div>
+    <%= link_to_remove_association "Remover participante", f %>
+  </div>
 </div>
