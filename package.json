@@ -1,5 +1,7 @@
 {
   "name": "organizador",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "selectize": "^0.12.6"
+  }
 }

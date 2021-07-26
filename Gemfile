@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'hamlit'
 gem 'simple_form'
 gem 'devise'
+gem 'jquery-rails'
+gem "selectize-rails"
 gem 'cocoon'
 
 #gem 'mongoid', git: 'https://github.com/estolfo/mongoid.git', branch: 'MONGOID-4218-rails-5'
