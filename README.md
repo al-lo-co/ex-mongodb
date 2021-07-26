@@ -9,7 +9,7 @@ The setups steps expect following tools installed on the system.
 ##### 1. Check out the repository
 
 ```bash
-git clone https://github.com/al-lo-co/star-wars-characters.git
+git clone https://github.com/al-lo-co/ex-mongodb.git
 ```
 
 ##### 2. Install gems
