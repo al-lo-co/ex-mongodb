@@ -31,9 +31,25 @@ RSpec.describe "Tasks", type: :system do
           fill_in "task[name]",	with: "sometext"
           fill_in "task[description]",	with: "sometext"
           fill_in "task[due_date]",	with: Date.today + 1.day
-          select category.name, from: 'task[category_id]'
-          select participant.email, from: 'task[participating_users_attributes][0][user_id]'
-          select 'responsible', from: 'task[participating_users_attributes][0][role]'
+          #select category.name, from: 'task[category_id]'
+          page.execute_script(
+            "document.getElementById('task_category_id').selectize.setValue('#{category.id}')"
+          )
+
+          #select participant.email, from: 'task[participating_users_attributes][0][user_id]'
+          page.execute_script(
+            "document.querySelector('.selectize.user').selectize.setValue('#{participant.id}')"
+          )
+          #select 'responsible', from: 'task[participating_users_attributes][0][role]'
+
+          page.execute_script(
+            "document.querySelector('.selectize.role').selectize.setValue('1')"
+          )
+          #xpath = '//*id="new_task"]/div[1]/div[4]/div[1]'
+          #within(:xpath, xpath) do
+          #  select participant.email, from: 'Usuario'
+          #  select 'responsible', from: 'Rol'
+          #end
           click_button 'Create Task'
         end
         expect(page).to have_content 'Editar nota'
