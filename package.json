@@ -2,6 +2,7 @@
   "name": "organizador",
   "private": true,
   "dependencies": {
+    "cocoon": "^0.1.1",
     "selectize": "^0.12.6"
   }
 }

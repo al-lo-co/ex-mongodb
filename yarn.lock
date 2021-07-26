@@ -22,6 +22,11 @@ cardinal@^1.0.0:
     ansicolors "~0.2.1"
     redeyed "~1.0.0"
 
+cocoon@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/cocoon/-/cocoon-0.1.1.tgz#e917ec7689b26cde3d567e815bda35a16172ed6e"
+  integrity sha1-6RfsdomybN49Vn6BW9o1oWFy7W4=
+
 csv-parse@^4.6.5:
   version "4.16.0"
   resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-4.16.0.tgz#b4c875e288a41f7ff917cb0d7d45880d563034f6"

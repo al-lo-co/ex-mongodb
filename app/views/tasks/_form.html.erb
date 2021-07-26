@@ -22,7 +22,14 @@
       <%= f.collection_select :category_id, Category.all, :id, :name %>
     </div>
 
-    <%= render 'participating_users_fields', f: f %>
+    <div class="participating-users">
+      <%= f.fields_for :participating_users, Participant.new do | p | %>
+        <%= render 'participating_user_fields', f: p, class: 'participants' %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to_add_association 'Agregar participante', f, :participating_users %>
+    </div>
 
     <div>
       <%= f.submit %>
