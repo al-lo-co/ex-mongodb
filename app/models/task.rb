@@ -37,4 +37,9 @@ class Task
     self.code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandom.hex(8)}"
   end
 
+  def send_email
+    return unless Rails.env.development?
+    Tasks::SendEmail.new.call self
+  end
+
 end
