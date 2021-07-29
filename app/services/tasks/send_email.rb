@@ -1,13 +1,14 @@
 class Tasks::SendEmail
   def call task
-    (task.participants + [task.owener]).each do |user|
+    binding.pry
+    (task.participants + [task.owner]).each do |user|
       ParticipantMailer.with(user: user, task: task).new_task_email.deliver!
+      binding.pry
     end
     [true, 'succesful']
-  end
-
-  rescue => expect
+  rescue => e
     Rails.logger.error e
     [false, 'fail']
   end
+  
 end

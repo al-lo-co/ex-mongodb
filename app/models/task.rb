@@ -22,6 +22,7 @@ class Task
   accepts_nested_attributes_for :participating_users, allow_destroy: true
 
   before_create :create_code
+  after_create :send_email
 
   def participants
     participating_users.includes(:user).map(&:user)

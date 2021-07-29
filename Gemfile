@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'hamlit'
+gem 'letter_opener'
 gem 'simple_form'
 gem 'devise'
 gem 'jquery-rails'
