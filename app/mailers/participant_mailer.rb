@@ -3,6 +3,5 @@ class ParticipantMailer < ApplicationMailer
     @user = params[:user]
     @task = params[:task]
     mail to: @user.email, subject: 'Tarea asignada'
-    binding.pry
   end
 end

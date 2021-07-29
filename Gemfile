@@ -38,6 +38,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem "selectize-rails"
 gem 'cocoon'
+gem 'sucker_punch'
 
 #gem 'mongoid', git: 'https://github.com/estolfo/mongoid.git', branch: 'MONGOID-4218-rails-5'
 gem 'mongoid', '~> 6.1.0' 
