@@ -5,7 +5,7 @@ RSpec.describe Tasks::SendEmailJob, type: :job do
   describe "#perform_async" do
     let(:task_id){'1'}
     #usar doubles
-    it 'send the email', focus: true do
+    it 'send the email' do
       task = class_double('Task').as_stubbed_const
       service = double
       object_double('Tasks::SendEmail', new: service).as_stubbed_const
