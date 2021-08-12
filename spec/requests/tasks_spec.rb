@@ -39,6 +39,24 @@ RSpec.describe "Tasks endpoint", type: :request do
         }
       end
 
+      describe "Patch /tasks/:id/trigger" do
+        let(:participants_count) { 4 }
+        subject(:task) do
+          build(
+                  :task_with_participants, 
+                  owner: user,
+                  participants_count: participants_count
+                )
+        end  
+        let(:event) { 'start'}
+        it 'updates the state', focus: true do
+          task.save
+          patch trigger_task_path(task, event: event)
+          expect(task.reload.status).to eq 'in_process' 
+        end
+      end
+      
+
       it 'create new task and redirect' do
         post '/tasks', params: params
         expect(response).to redirect_to(assigns(:task))

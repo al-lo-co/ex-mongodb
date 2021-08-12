@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'health', to: 'health#health'
   resources :categories
   resources :tasks do
+    patch :trigger, on: :member
     resources :notes, only: [:create], controller: 'notes'
   end
   root to: 'tasks#index'

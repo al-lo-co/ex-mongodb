@@ -11,7 +11,7 @@ RSpec.describe Tasks::CreateCode, type: :model do
   describe '#call' do 
     context 'with a valid task' do
       before(:each){ task.save }
-      it 'should return success with the code', focus: true do
+      it 'should return success with the code' do
         success, message = service.call task, code
         expect(success).to eq true
         expect(message).to eq 'succesful'
