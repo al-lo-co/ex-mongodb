@@ -51,7 +51,7 @@ RSpec.describe "Tasks endpoint", type: :request do
         let(:event) { 'start'}
         it 'updates the state', focus: true do
           task.save
-          patch trigger_task_path(task, event: event)
+          patch trigger_task_path(task, event: event, format: :js)
           expect(task.reload.status).to eq 'in_process' 
         end
       end

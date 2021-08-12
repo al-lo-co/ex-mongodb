@@ -5,6 +5,13 @@
     <p><%= @task.due_date %></p>
     <p><%= @task.category.name %></p>
     <p><%= @task.owner.email %></p>
+    <p class="task-status"><%= @task.status %></p>
+    <p>
+      <% available_events_for(@task).each do |event| %> 
+        <%= link_to event, trigger_task_path(@task, event: event, format: :js), remote: true, method: :patch %>
+      <% end %>
+    </p>
+    
   </div>
   <div>
     <% @task.notes.each do |note|%>
